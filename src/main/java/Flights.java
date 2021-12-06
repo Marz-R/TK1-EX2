@@ -1,17 +1,16 @@
-import java.util.List;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Flights{
 	
 	private String destination;
-	private LocalDateTime departureTime; // only shows weekdays and time
+	private LocalDateTime departureTime;
 	private String model;
 	private char[][] FCseats;
 	private char[][] EPseats;
 	private char[][] Eseats;
 
-	public Flights(String destination, LocalDateTime departureTime, String model){
+	public Flights(String destination, LocalDateTime departureTime,String model){
 		//initialize flight objects
 
 		this.destination = destination;
@@ -41,17 +40,37 @@ public class Flights{
 		char[][] seats;
 
 		switch(model){
-			case "Airbus319":
+			case "Airbus 319":
+				seats = new char[2][4]; // char[row][col]
+				for (int i = 0; i < 2; i++){
+					for (int j = 0; j < 4; j++){
+						seats[i][j] = 'E';
+					}
+				}
 				break;
 
-			case "Boeing737-900":
+			case "Boeing 737-900":
+				seats = new char[5][4];
+				for (int i = 0; i < 5; i++){
+					for (int j = 0; j < 4; j++){
+						seats[i][j] = 'E';
+					}
+				}
 				break;
 
 			case "Embraer E170":
+				seats = new char[2][3];
+				for (int i = 0; i < 2; i++){
+					for (int j = 0; j < 3; j++){
+						seats[i][j] = 'E';
+					}
+				}
 				break;
 
 			default:
 				//wrong model message
+				seats = null;
+				System.out.println("Invalid model");
 				break;
 		}
 
@@ -65,17 +84,41 @@ public class Flights{
 		char[][] seats;
 
 		switch(model){
-			case "Airbus319":
+			case "Airbus 319":
+				seats = new char[7][6];
+				for (int i = 0; i < 7; i++){
+					for (int j = 0; j < 6; j++){
+						seats[i][j] = 'E';
+					}
+				}
 				break;
 
-			case "Boeing737-900":
+			case "Boeing 737-900":
+				seats = new char[8][6]; // special structure, refer to pdf
+				for (int i = 0; i < 8; i++){
+					for (int j = 0; j < 6; j++){
+						if (i == 0 && j < 3 || i == 5 && j > 2){
+							seats[i][j] = 'N';
+						} else{
+							seats[i][j] = 'E';
+						}
+					}
+				}
 				break;
 
 			case "Embraer E170":
+				seats = new char[4][4];
+				for (int i = 0; i < 4; i++){
+					for (int j = 0; j < 4; j++){
+						seats[i][j] = 'E';
+					}
+				}
 				break;
 
 			default:
 				//wrong model message
+				seats = null;
+				System.out.println("Invalid model");
 				break;
 		}
 
@@ -89,17 +132,37 @@ public class Flights{
 		char[][] seats;
 
 		switch(model){
-			case "Airbus319":
+			case "Airbus 319":
+				seats = new char[13][6];
+				for (int i = 0; i < 13; i++){
+					for (int j = 0; j < 6; j++){
+						seats[i][j] = 'E';
+					}
+				}
 				break;
 
-			case "Boeing737-900":
+			case "Boeing 737-900":
+				seats = new char[20][6];
+				for (int i = 0; i < 20; i++){
+					for (int j = 0; j < 6; j++){
+						seats[i][j] = 'E';
+					}
+				}
 				break;
 
 			case "Embraer E170":
+				seats = new char[12][4];
+				for (int i = 0; i < 12; i++){
+					for (int j = 0; j < 4; j++){
+						seats[i][j] = 'E';
+					}
+				}
 				break;
 
 			default:
 				//wrong model message
+				seats = null;
+				System.out.println("Invalid model");
 				break;
 		}
 
