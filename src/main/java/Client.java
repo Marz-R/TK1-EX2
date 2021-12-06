@@ -6,12 +6,12 @@ public class Client {
     // System.out.println("Hello, customer " + clientID + "! Here are the list of currently available flights:");
     // get list of available flights from the server (SOAP/REST)
     // if (availableFlight.isEmpty()) System.out.println("There is no available flights.");
-		// else print(availableFlights)  // assuming that the flights with the all seats unavailable are already filtered at this point
+    // else print(availableFlights)  // assuming that the flights with the all seats unavailable are already filtered at this point
 
     // print("To which flight would you like to make a reservation?"")
-		// customer select flight; get available seats of the selected flight from the server (SOAP/REST);
-		// print("Here is the list of available seats for this flight")
-		// print(available seats)  // assuming that at least one seat is available at the time of printing out; that last seat could be unavailble if other customer reserved that seat while the customer is hesitating
+    // customer select flight; get available seats of the selected flight from the server (SOAP/REST);
+    // print("Here is the list of available seats for this flight")
+    // print(available seats)  // assuming that at least one seat is available at the time of printing out; that last seat could be unavailble if other customer reserved that seat while the customer is hesitating
 
     // customer select seat; check if the selected seat is still available (SOAP/REST)
     // if that seat is still available, set selected seat as reserved (SOAP/REST)
