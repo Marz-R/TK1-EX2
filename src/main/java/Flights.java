@@ -62,6 +62,8 @@ public class Flights{
 		//return seat plan for economy plus class
 		//remember to create new char[][], to avoid null pointer
 		//'P' purchased; 'R' reserved; 'E' empty; 'N' not exist
+		char[][] seats;
+
 		switch(model){
 			case "Airbus319":
 				break;
@@ -76,12 +78,16 @@ public class Flights{
 				//wrong model message
 				break;
 		}
+
+		return seats;
 	}
 
 	private char[][] setEcon(String model){
 		//return seat plan for economy class
 		//remember to create new char[][], to avoid null pointer
 		//'P' purchased; 'R' reserved; 'E' empty; 'N' not exist
+		char[][] seats;
+
 		switch(model){
 			case "Airbus319":
 				break;
@@ -96,5 +102,7 @@ public class Flights{
 				//wrong model message
 				break;
 		}
+
+		return seats;
 	}
 }
