@@ -14,12 +14,17 @@ import javax.jws.soap.SOAPBinding.Style;
 import model.Flight;
 import model.FlightList;
 
-@WebService
+@WebService(name = "ReservationBookingService")
 @SOAPBinding(style = Style.RPC)
 public class ReservationBookingService {
 
 	FlightList flights = new FlightList();
 	
+	// implementation for web service
+	
+	
+	
+	// implementation for client
 	@WebMethod
 	public void login(String ClientId) {
 		
