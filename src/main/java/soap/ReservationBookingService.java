@@ -12,6 +12,7 @@ import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
 
 import model.Flight;
+import model.FlightList;
 
 @WebService
 @SOAPBinding(style = Style.RPC)
@@ -24,6 +25,6 @@ public class ReservationBookingService {
 	
 	@WebMethod
 	public List<Flight> getFlightList() {
-		return null;
+		return FlightList.getFlightList();
 	}
 }
