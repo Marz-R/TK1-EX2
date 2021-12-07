@@ -20,13 +20,13 @@ public class SoapClient {
 		
 		URL url = new URL("http://localhost:8090/bookingservice?wsdl");
 		
-        //1st argument service URI, which i actually have no idea what it should be
+		//1st argument service URI, which i actually have no idea what it should be
 		//2nd argument is service name
-        QName qname = new QName("http://localhost:8090/bookingservice?wsdl", "ReservationBookingService");
+		QName qname = new QName("http://localhost:8090/bookingservice?wsdl", "ReservationBookingService");
 
-        Service service = Service.create(url, qname);
+		Service service = Service.create(url, qname);
 
-        ReservationBookingService booking = service.getPort(ReservationBookingService.class);
+		ReservationBookingService booking = service.getPort(ReservationBookingService.class);
 		
 	}
 }
