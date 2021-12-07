@@ -18,20 +18,18 @@ import model.FlightList;
 @SOAPBinding(style = Style.RPC)
 public class ReservationBookingService {
 
-	FlightList flights = new FlightList();
-	
-	// implementation for web service
-	
-	
+	private FlightList flights = new FlightList();
+	private String clientId;
 	
 	// implementation for client
 	@WebMethod
-	public void login(String ClientId) {
-		
+	public void login(String clientId) {
+		this.clientId = clientId;
+		System.out.println("Client " + clientId + " logged in.");
 	}
 	
 	@WebMethod
-	public List<Flight> getFlightList() {
+	public List<Flight> getFlightList(LocalDateTime currentDayTime) {
 		return flights.getFlightList();
 	}
 }

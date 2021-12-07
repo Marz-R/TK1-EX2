@@ -10,13 +10,14 @@ import soap.ReservationBookingService;
 public class SoapClient {
 	//@WebServiceRef(wsdlLocation = "http://localhost:8090/bookingservice/ReservationBookingService?WSDL")
 	//private static ReservationBookingService service;
-	private String clientIdp = UUID.randomUUID().toString();;
+	private String clientId = UUID.randomUUID().toString();;
 	
 	public SoapClient() {
 		
 	}
 	
 	public static void main(String[] args) throws Exception {
+		SoapClient client = new SoapClient();
 		
 		URL url = new URL("http://localhost:8090/bookingservice?wsdl");
 		
@@ -27,6 +28,8 @@ public class SoapClient {
 		Service service = Service.create(url, qname);
 
 		ReservationBookingService booking = service.getPort(ReservationBookingService.class);
+		
+		booking.login(client.clientId);
 		
 	}
 }
