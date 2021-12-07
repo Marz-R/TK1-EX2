@@ -7,6 +7,7 @@ import java.util.*;
 import soap.ReservationBookingService; //SOAP
 import javax.xml.ws.Endpoint;
 
+import model.Flight;
 import rest.ReservationBookingController;//REST
 
 public class ServerMain {
@@ -115,7 +116,7 @@ public class ServerMain {
     server.setAvailableFlights(LocalDateTime.now());
     
     // publish SOAP
-    
+    Endpoint.publish("http://localhost:8090/bookingservice", new ReservationBookingService());
 
     // client selected flight (get flight from availableFlights)
     // set transactions[clientID].flight = flight
