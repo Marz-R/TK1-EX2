@@ -4,6 +4,11 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+import soap.ReservationBookingService; //SOAP
+import javax.xml.ws.Endpoint;
+
+import rest.ReservationBookingController;//REST
+
 public class ServerMain {
   private List<Flight> flights = new ArrayList<Flight>();
   private List<Flight> availableFlights = new ArrayList<Flight>();
@@ -108,6 +113,9 @@ public class ServerMain {
 
     // client logged in... get client ID
     server.setAvailableFlights(LocalDateTime.now());
+    
+    // publish SOAP
+    
 
     // client selected flight (get flight from availableFlights)
     // set transactions[clientID].flight = flight
