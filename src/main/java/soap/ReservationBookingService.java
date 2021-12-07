@@ -17,6 +17,8 @@ import model.FlightList;
 @WebService
 @SOAPBinding(style = Style.RPC)
 public class ReservationBookingService {
+	
+	FlightList flightList = new FlightList();
 
 	@WebMethod
 	public void login(String ClientId) {
@@ -25,6 +27,6 @@ public class ReservationBookingService {
 	
 	@WebMethod
 	public List<Flight> getFlightList() {
-		return FlightList.getFlightList();
+		return flightList.getFlightList();
 	}
 }
