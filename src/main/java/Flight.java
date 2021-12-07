@@ -6,15 +6,16 @@ import java.time.LocalTime;
 public class Flight {
   private String flightNum;  // flight identifier
   private String destination;
-  // private LocalDateTime departureTime;
   private DayOfWeek dayOfWeek;  // Mon, Tue, Wed, Thu, Fri, Sat, Sun
   private LocalTime departureTime;  // HH:mm:ss
   private String model;
+  private int price; // basic price for the flight
+  
   private char[][] FCseats;
   private char[][] EPseats;
   private char[][] Eseats;
 
-  public Flight(String flightNum, String destination, DayOfWeek dayOfWeek, LocalTime departureTime, String model) {
+  public Flight(String flightNum, String destination, DayOfWeek dayOfWeek, LocalTime departureTime, String model, int price) {
     //initialize flight objects
 
     this.flightNum = flightNum;
@@ -22,6 +23,7 @@ public class Flight {
     this.dayOfWeek = dayOfWeek;
     this.departureTime = departureTime;
     this.model = model;
+    this.price = price;
     FCseats = setFirstClass(model);
     EPseats = setEconPlus(model);
     Eseats = setEcon(model);
