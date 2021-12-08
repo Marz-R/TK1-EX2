@@ -18,8 +18,8 @@ public class ServerMain {
 		  @Override
 		  public void run() {
 			  // publish SOAP
-        Endpoint.publish("http://localhost:8090/bookingservice", new ReservationBookingService());
-        System.out.println("Started SOAP server");
+			  Endpoint.publish("http://localhost:8090/bookingservice", new ReservationBookingService());
+			  System.out.println("Started SOAP server");
 	      }
 	   }).run();
   }

@@ -8,11 +8,10 @@ import java.util.*;
 
 public class FlightList {
 	private List<Flight> flights = new ArrayList<Flight>();
-	private List<Flight> availableFlights = new ArrayList<Flight>();
 	// private List<Transaction> transactions;  // list of transactions contains data: clientID, flight, seat, meal, and paid amount
 	
 	public FlightList() {
-		
+		setUpFlights();
 	}
 	
 	// instantiate all flights (9 flights * 7 days)
@@ -88,25 +87,17 @@ public class FlightList {
 	    flights.add(new Flight("TK0063", "HND", DayOfWeek.SUNDAY, LocalTime.parse("21:45:00"), "Boeing 737-900", 350));
 	  }
 
-	// check if there are available flights based on current day of week and time
-	// set internal availableFlights object with appropriate flights
-	// TODO: when to call this function? -> when some client reserved seat, every specific interval (ex. 10 sec)
-	private void setAvailableFlights(LocalDateTime currentDayTime) {
-		DayOfWeek currentDayOfWeek = currentDayTime.getDayOfWeek();
-	    DateTimeFormatter f = DateTimeFormatter.ofPattern("HH:mm:ss");
-	    LocalTime currentTime = LocalTime.parse(currentDayTime.format(f));
-
-	    for (Flight flight : flights) {
-	    	// DayOfWeek is enum object so the later day of week has larger int value
-	    	// isAfter returns boolean.
-	    	// TODO: check if there is any available seats in a flight which is available in terms of day of week and time
-	    	if (flight.getDayOfWeek().getValue() >= currentDayOfWeek.getValue() && flight.getDepartureTime().isAfter(currentTime)) {
-	    		availableFlights.add(flight);
-	    	}
-	    }
-	}
 
 	public List<Flight> getFlightList(){
 		return this.flights;
+	}
+	
+	public  Flight getFlight(String flightNum) {
+		for (Flight f : flights) {
+			if (f.getFlightNum().equals(flightNum)) return f;
+		}
+		
+		
+		return null;
 	}
 }

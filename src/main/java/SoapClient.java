@@ -31,5 +31,17 @@ public class SoapClient {
 		
 		booking.login(client.clientId);
 		
+		// get and print available flights
+		booking.getAvailableFlightList();
+
+		//TODO input flight number and class
+		booking.getSeatList(null, null);
+		
+		//TODO transform seat list to plan
+		
+		//TODO input seat number and meal
+		//TODO translate seat number to integers i and j for String[][]
+		booking.booking(null, null); // return booking id
+		
 	}
 }
