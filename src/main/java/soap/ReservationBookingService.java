@@ -23,14 +23,12 @@ public class ReservationBookingService {
 	private Flight selectedFlight;
 	//private FlightList FL = new FlightList();
 	private AvailableFlights AF = new AvailableFlights(LocalDateTime.now());
-	private String clientId;
 	private ShoppingCart cart;
 	private String[][] tempSeat;
 	
 	// implementation for client
 	@WebMethod
 	public void login(String clientId) {
-		this.clientId = clientId;
 		cart = new ShoppingCart(clientId);
 		System.out.println("Client " + clientId + " logged in.");
 	}
@@ -61,10 +59,54 @@ public class ReservationBookingService {
 	
 	@WebMethod
 	public String booking(String seatNum, String meal) {
-		//TODO translate seat number to integers i and j for String[][]
-		//TODO check if seat is empty
-		//TODO change empty seat to reserved seat
-		return cart.addItem(selectedFlight.getFlightNum(), seatNum, meal, selectedFlight.getPrice());
-		//return null;
+		//translate seat number to integers row and col for String[][]
+		int row;
+		int col;
+		char[] c = new char[2]; // char[0]: row, char[1]: column
+		
+		if (seatNum.length() == 2) {
+			c = seatNum.toCharArray();
+		} else {
+			System.out.println("Invalid Seat Number");
+			return null;
+		}
+		
+		if (Character.getNumericValue(c[0]) <= tempSeat.length) {
+			row = Character.getNumericValue(c[0]) - 1; // if input = 2A, row = 1
+		}else {
+			System.out.println("Invalid Seat Number");
+			return null;
+		}
+		
+		switch(c[1]) {
+			case 'A':
+				col = 0;
+			case 'B':
+				col = 1;
+			case 'C':
+				col = 2;
+			case 'D':
+				col = 3;
+			case 'E':
+				col = 4;
+			case 'F':
+				col = 5;
+			default:
+				col = 100;
+		}
+		
+		//check if seat is empty
+		if (tempSeat[row][col] == "E") {
+			//change empty seat to reserved seat
+			tempSeat[row][col] = "R";
+			return cart.addItem(selectedFlight.getFlightNum(), seatNum, meal, selectedFlight.getPrice());
+		} else if(col == 100) {
+			System.out.println("Invalid Seat Number");
+			return null;
+		} else {
+			System.out.println("This seat is occupied");
+			return null;
+		}
+
 	}
 }

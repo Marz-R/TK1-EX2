@@ -12,22 +12,17 @@ public class SoapClient {
 	//private static ReservationBookingService service;
 	private String clientId = UUID.randomUUID().toString();;
 	
-	public SoapClient() {
-		
-	}
+	public SoapClient() {}
 	
 	public static void main(String[] args) throws Exception {
 		SoapClient client = new SoapClient();
 		
 		URL url = new URL("http://localhost:8090/bookingservice?wsdl");
-		
-		//1st argument service URI, which i actually have no idea what it should be
-		//2nd argument is service name
-		QName qname = new QName("http://localhost:8090/bookingservice?wsdl", "ReservationBookingService");
-
+		QName qname = new QName("http://soap/ReservationBookingService", "ReservationBookingService");
 		Service service = Service.create(url, qname);
-
 		ReservationBookingService booking = service.getPort(ReservationBookingService.class);
+		
+		Scanner sc=new Scanner(System.in);  
 		
 		booking.login(client.clientId);
 		
