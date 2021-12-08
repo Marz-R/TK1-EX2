@@ -39,6 +39,11 @@ public class ShoppingCartItem{
 		return this.price;
 	}
 	
+	public void setFlightNum() {}
+	public void setSeatNum() {}
+	public void setMeal() {}
+	public void setPrice() {}
+	
 	// check if client book the same flight twice
 	public boolean repeat(String flightNum, List<ShoppingCartItem> items) {
 		for (ShoppingCartItem sci : items) {

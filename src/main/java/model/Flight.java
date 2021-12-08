@@ -70,7 +70,7 @@ public class Flight {
 		return this.dayOfWeek;
 	}
 
-  public int getDayOfWeekInt() {
+	public int getDayOfWeekInt() {
     int res;
     switch (this.dayOfWeek) {
       case "Mon":
@@ -125,6 +125,20 @@ public class Flight {
 	public String[][] getEcon() {
 		return this.Eseats;
 	}
+	
+	public void setFlightNum() {}
+	
+	public void setDestination() {}
+
+	public void setDayOfWeek() {}
+
+	public void setDayOfWeekInt() {}
+
+	public void setDepartureTime() {}
+
+	public void setModel() {}
+
+	public void setPrice() {}
 
 	public int getRemainingFCseatsNum() {
 		// count frequency of each value

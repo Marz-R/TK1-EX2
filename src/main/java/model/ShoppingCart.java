@@ -41,7 +41,7 @@ public class ShoppingCart{
 		return total;
 	}
 	
-	public List<ShoppingCartItem> getCartItem(){
+	public List<ShoppingCartItem> getItems(){
 		return items;
 	}
 	
@@ -49,5 +49,13 @@ public class ShoppingCart{
 	public String getBookingId() {
 		return bookingId;
 	}
+	
+	public String getClientId() {
+		return clientId;
+	}
+	
+	public void setItems() {}
+	public void setBookingId() {}
+	public void setClientId() {}
 	
 }

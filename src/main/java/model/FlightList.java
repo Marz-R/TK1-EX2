@@ -1,8 +1,6 @@
 package model;
 
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -95,6 +93,8 @@ public class FlightList {
 	public List<Flight> getFlightList(){
 		return this.flights;
 	}
+	
+	public void setFlightList() {}
 	
 	public  Flight getFlight(String flightNum) {
 		for (Flight f : flights) {

@@ -14,6 +14,8 @@ public class AvailableFlights {
   private ArrayList<Flight> availableFlights = new ArrayList<Flight>();
   private FlightList flightsList = new FlightList();
 
+  public AvailableFlights() {}
+  
   public AvailableFlights(LocalDateTime currentDayTime) {
     int currentDayOfWeekInt = currentDayTime.getDayOfWeek().getValue();  // 1: Mon, 2: Tue, ... 7: Sun
     DateTimeFormatter f = DateTimeFormatter.ofPattern("HH:mm:ss");
@@ -40,6 +42,14 @@ public class AvailableFlights {
   public ArrayList<Flight> getAvailableFlights() {
     return availableFlights;
   }
+  
+  public FlightList getFlightList() {
+	    return flightsList;
+  }
+  
+  public void setAvailableFlights() {}
+	
+  public void setFlightList() {}
 
   public Flight get(String flightNum) {
     for (Flight f : availableFlights) {

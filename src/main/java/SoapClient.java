@@ -2,13 +2,10 @@ import soap.ReservationBookingService;
 import java.net.URL;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
-import javax.xml.ws.WebServiceRef;
 
 import model.Flight;
 
 import java.util.*;
-
-import soap.ReservationBookingService;
 
 public class SoapClient {
 	//@WebServiceRef(wsdlLocation = "http://localhost:8090/bookingservice/ReservationBookingService?WSDL")
@@ -80,8 +77,8 @@ public class SoapClient {
 	public static void main(String[] args) throws Exception {
 		SoapClient client = new SoapClient();
 		
-		URL url = new URL("http://localhost:8090/bookingservice?wsdl");
-		QName qname = new QName("http://soap/ReservationBookingService", "ReservationBookingService");
+		URL url = new URL("http://localhost:8090/");
+		QName qname = new QName("http://localhost:8090/", "ReservationBookingService");
 		Service service = Service.create(url, qname);
 		ReservationBookingService booking = service.getPort(ReservationBookingService.class);
 		

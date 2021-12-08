@@ -1,8 +1,6 @@
 package soap;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import javax.jws.WebMethod;
@@ -11,12 +9,11 @@ import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
 
 import model.Flight;
-import model.FlightList;
 import model.AvailableFlights;
 import model.ShoppingCart;
 import model.ShoppingCartItem;
 
-@WebService(name = "ReservationBookingService")
+@WebService //(endpointInterface = "soap.ReservationBookingService", name = "ReservationBookingService")
 @SOAPBinding(style = Style.RPC)
 public class ReservationBookingService {
 
@@ -113,7 +110,7 @@ public class ReservationBookingService {
 	@WebMethod
 	public double payment() {
 		double total = 0;
-		List<ShoppingCartItem> items = cart.getCartItem();
+		List<ShoppingCartItem> items = cart.getItems();
 		
 		System.out.println("Shopping Cart");
 		System.out.println("FlightID  SeatID  Meal  Price");
