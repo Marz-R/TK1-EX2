@@ -15,6 +15,7 @@ import model.Flight;
 import model.FlightList;
 import model.AvailableFlights;
 import model.ShoppingCart;
+import model.ShoppingCartItem;
 
 @WebService(name = "ReservationBookingService")
 @SOAPBinding(style = Style.RPC)
@@ -108,5 +109,20 @@ public class ReservationBookingService {
 			return null;
 		}
 
+	}
+	
+	@WebMethod
+	public double payment() {
+		double total = 0;
+		List<ShoppingCartItem> items = cart.getCartItem();
+		
+		System.out.println("Shopping Cart");
+		System.out.println("FlightID  SeatID  Meal  Price");
+		for (ShoppingCartItem i: items) {
+			System.out.println(i.getFlightNum() + "  " + i.getSeatNum() + "  " + i.getMeal() + "  " + i.getPrice());
+			total += i.getPrice();
+		}
+		
+		return total;
 	}
 }
