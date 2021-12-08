@@ -2,7 +2,6 @@ import soap.ReservationBookingService; //SOAP
 
 import javax.xml.ws.Endpoint;
 
-
 public class ServerMain {
   
   public static void main(String[] args) {
