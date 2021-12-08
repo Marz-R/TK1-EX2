@@ -14,6 +14,7 @@ import javax.jws.soap.SOAPBinding.Style;
 import model.Flight;
 import model.FlightList;
 import model.AvailableFlights;
+import model.ShoppingCart;
 
 @WebService(name = "ReservationBookingService")
 @SOAPBinding(style = Style.RPC)
@@ -23,11 +24,13 @@ public class ReservationBookingService {
 	//private FlightList FL = new FlightList();
 	private AvailableFlights AF = new AvailableFlights(LocalDateTime.now());
 	private String clientId;
+	private ShoppingCart cart;
 	
 	// implementation for client
 	@WebMethod
 	public void login(String clientId) {
 		this.clientId = clientId;
+		cart = new ShoppingCart(clientId);
 		System.out.println("Client " + clientId + " logged in.");
 	}
 	
