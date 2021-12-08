@@ -17,6 +17,28 @@ public class SoapClient {
 	
 	public SoapClient() {}
 	
+	private static void printSeats(String[][] seats) {
+		char c = 'A';
+		
+		System.out.print("  ");
+		for(int j = 0; j < seats[0].length; j++) {
+			System.out.print(c + " ");
+			c++;
+		}
+		
+		for(int i = 0; i < seats.length; i++) {
+			System.out.print((i+1) + " ");
+			
+			for(String s : seats[i]) {
+				if (s.equals("E")) {
+					System.out.print("O ");
+				} else {
+					System.out.print("X ");
+				}
+			}
+		}
+	}
+	
 	private static void bookingService(ReservationBookingService booking) {
 		Scanner sc = new Scanner(System.in);
 		
@@ -39,8 +61,7 @@ public class SoapClient {
 		String sclass = sc.nextLine();
 		
 		String[][] seats = booking.getSeatList(fid, sclass);
-		
-		// transform seat list to plan
+		printSeats(seats);
 		
 		// input seat number and meal
 		System.out.println("Please input the seat ID that you want to book: ");
