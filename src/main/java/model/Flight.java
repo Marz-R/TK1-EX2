@@ -127,6 +127,8 @@ public class Flight {
 		//remember to create new char[][], to avoid null pointer
 		//'P' purchased; 'R' reserved; 'E' empty; 'N' not exist
 		String[][] seats;
+		
+		price *= 2; 
 
 		switch(model){
 		case "Airbus 319":
@@ -171,6 +173,8 @@ public class Flight {
 		//remember to create new char[][], to avoid null pointer
 		//'P' purchased; 'R' reserved; 'E' empty; 'N' not exist
 		String[][] seats;
+		
+		price *= 1.5;
 
 		switch(model){
 		case "Airbus 319":

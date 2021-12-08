@@ -7,9 +7,9 @@ public class ShoppingCartItem{
 	private String flightNum;
 	private String seatNum;
 	private String meal;
-	private int price;
+	private double price;
 	
-	public ShoppingCartItem(String flightNum, String seatNum, String meal, int price){
+	public ShoppingCartItem(String flightNum, String seatNum, String meal, double price){
 		this.flightNum = flightNum;
 		this.seatNum = seatNum;
 		this.meal = meal;
@@ -28,7 +28,7 @@ public class ShoppingCartItem{
 		return this.meal;
 	}
 	
-	public int getPrice() {
+	public double getPrice() {
 		return this.price;
 	}
 	

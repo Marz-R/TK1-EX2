@@ -25,6 +25,7 @@ public class ReservationBookingService {
 	private AvailableFlights AF = new AvailableFlights(LocalDateTime.now());
 	private String clientId;
 	private ShoppingCart cart;
+	private String[][] tempSeat;
 	
 	// implementation for client
 	@WebMethod
@@ -41,23 +42,29 @@ public class ReservationBookingService {
 	
 	@WebMethod
 	public String[][] getSeatList(String flightNum, String seatClass){ //A: first class; B: econ plu; C: econ
-		selectedFlight = AF.get(flightNum);
+		selectedFlight = AF.get(flightNum); // return the Flight obj of the chosen flight
 		
 		switch(seatClass) {
 		case("A"):
-			return selectedFlight.getFirstClass();
+			tempSeat = selectedFlight.getFirstClass();
 		case("B"):
-			return selectedFlight.getEconPlus();
+			tempSeat = selectedFlight.getEconPlus();
 		case("C"):
-			return selectedFlight.getEcon();
+			tempSeat = selectedFlight.getEcon();
 		default:
 			System.out.println("Invalid Seat Class");
-			return null;
+			tempSeat = null;
 		}
+		
+		return tempSeat;
 	}
 	
 	@WebMethod
 	public String booking(String seatNum, String meal) {
-		return null;
+		//TODO translate seat number to integers i and j for String[][]
+		//TODO check if seat is empty
+		//TODO change empty seat to reserved seat
+		return cart.addItem(selectedFlight.getFlightNum(), seatNum, meal, selectedFlight.getPrice());
+		//return null;
 	}
 }

@@ -95,9 +95,7 @@ public class FlightList {
 	public  Flight getFlight(String flightNum) {
 		for (Flight f : flights) {
 			if (f.getFlightNum().equals(flightNum)) return f;
-		}
-		
-		
+		}		
 		return null;
 	}
 }
