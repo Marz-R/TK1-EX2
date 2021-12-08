@@ -7,12 +7,12 @@ public class ServerMain {
   
   public static void main(String[] args) throws IOException {
   
-	  (new Thread() {
+	  /*(new Thread() {
 		  @Override
 	      public void run() {
 	    	  // publish REST
 	      }
-	  }).run();
+	  }).run();*/
 
 	  (new Thread() {
 		  @Override

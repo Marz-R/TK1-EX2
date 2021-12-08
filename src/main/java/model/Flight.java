@@ -12,6 +12,10 @@ import javax.xml.bind.annotation.XmlElement;
 // TODO: add function to update seats <- indexing: update(char/String row, int col) {translate char/String to int} ? ex. seat A15
 public class Flight {
  
+	public Flight() {
+		
+	}
+	
 	public Flight(String flightNum, String destination, DayOfWeek dayOfWeek, LocalTime departureTime, String model, int price) {
 	    //initialize flight objects
 	    this.flightNum = flightNum;
