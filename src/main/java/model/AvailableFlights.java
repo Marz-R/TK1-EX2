@@ -1,21 +1,21 @@
 package model;
 
-import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class AvailableFlights {
   @XmlElement
   private ArrayList<Flight> availableFlights = new ArrayList<Flight>();
   private FlightList flightsList = new FlightList();
 
   public AvailableFlights(LocalDateTime currentDayTime) {
-    DayOfWeek currentDayOfWeek = currentDayTime.getDayOfWeek();
+    int currentDayOfWeekInt = currentDayTime.getDayOfWeek().getValue();  // 1: Mon, 2: Tue, ... 7: Sun
     DateTimeFormatter f = DateTimeFormatter.ofPattern("HH:mm:ss");
     LocalTime currentTime = LocalTime.parse(currentDayTime.format(f));
 
@@ -26,7 +26,7 @@ public class AvailableFlights {
       * The flight must have at least 3 available first class seats, 5 available economy plus seats,
       * and 10 available economy seats to be considered as "available for the customer".
       */ 
-      if (flight.getDayOfWeek().getValue() >= currentDayOfWeek.getValue()  // DayOfWeek is enum object so the later day of week has larger int value
+      if (flight.getDayOfWeekInt() >= currentDayOfWeekInt  // DayOfWeek is enum object so the later day of week has larger int value
         && flight.getDepartureTime().isAfter(currentTime)  // is this flight's departure time later than current time?
         && flight.getRemainingFCseatsNum() >= 3
         && flight.getRemainingEPseatsNum() >= 5

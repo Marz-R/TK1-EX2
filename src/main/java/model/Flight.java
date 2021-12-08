@@ -3,20 +3,21 @@ package model;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.time.DayOfWeek;
 import java.time.LocalTime;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 // TODO: add function to update seats <- indexing: update(char/String row, int col) {translate char/String to int} ? ex. seat A15
+@XmlRootElement
 public class Flight {
  
 	public Flight() {
 		
 	}
 	
-	public Flight(String flightNum, String destination, DayOfWeek dayOfWeek, LocalTime departureTime, String model, int price) {
+	public Flight(String flightNum, String destination, String dayOfWeek, LocalTime departureTime, String model, int price) {
 	    //initialize flight objects
 	    this.flightNum = flightNum;
 	    this.destination = destination;
@@ -35,7 +36,7 @@ public class Flight {
 	@XmlElement
 	private String destination;
 	@XmlElement
-	private DayOfWeek dayOfWeek;  // Mon, Tue, Wed, Thu, Fri, Sat, Sun
+	private String dayOfWeek;  // Mon, Tue, Wed, Thu, Fri, Sat, Sun
 	@XmlElement
 	private LocalTime departureTime;  // HH:mm:ss
 	@XmlElement
@@ -65,9 +66,41 @@ public class Flight {
 		return this.destination;
 	}
 
-	public DayOfWeek getDayOfWeek() {
+	public String getDayOfWeek() {
 		return this.dayOfWeek;
 	}
+
+  public int getDayOfWeekInt() {
+    int res;
+    switch (this.dayOfWeek) {
+      case "Mon":
+        res = 1;
+        break;
+      case "Tue":
+        res = 2;
+        break;
+      case "Wed":
+        res = 3;
+        break;
+      case "Thu":
+        res = 4;
+        break;
+      case "Fri":
+        res = 5;
+        break;
+      case "Sat":
+        res = 6;
+        break;
+      case "Sun":
+        res = 7;
+        break;
+      default:
+        res = 0;
+        break;
+    }
+
+    return res;
+  }
 
 	public LocalTime getDepartureTime() {
 		return this.departureTime;

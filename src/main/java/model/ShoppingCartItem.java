@@ -2,11 +2,18 @@ package model;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class ShoppingCartItem{
-	
+	@XmlElement
 	private String flightNum;
+	@XmlElement
 	private String seatNum;
+	@XmlElement
 	private String meal;
+	@XmlElement
 	private double price;
 	
 	public ShoppingCartItem(String flightNum, String seatNum, String meal, double price){

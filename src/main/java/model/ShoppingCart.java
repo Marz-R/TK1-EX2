@@ -2,10 +2,16 @@ package model;
 
 import java.util.*;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class ShoppingCart{
-	
+	@XmlElement
 	private String clientId;
+	@XmlElement
 	private List<ShoppingCartItem> items = new ArrayList<ShoppingCartItem>();
+	@XmlElement
 	private String bookingId;
 	
 	public ShoppingCart(String clientId) {

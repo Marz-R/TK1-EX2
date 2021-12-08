@@ -47,7 +47,7 @@ public class SoapClient {
 		System.out.println("FlightID  Destination  Date  Time  Model  BasicPrice");
 		ArrayList<Flight> fl = booking.getAvailableFlightList();
 		for (Flight f: fl) {
-			System.out.println(f.getFlightNum() + "  " + f.getDestination() + "  " + f.getDayOfWeek().toString() + "  " + f.getDepartureTime().toString() + "  " + f.getModel() + "  " + f.getPrice());
+			System.out.println(f.getFlightNum() + "  " + f.getDestination() + "  " + f.getDayOfWeek() + "  " + f.getDepartureTime().toString() + "  " + f.getModel() + "  " + f.getPrice());
 		}
 
 		// input flight number and class
